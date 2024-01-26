@@ -1,14 +1,38 @@
-const h1 = document.querySelector('h1')!;  // have to use the ! mark to tell ts that i know that it exits
-// or
-// if(h1) {
-//   h1.innerText = 'khankir pola kuttar bacca';
-// }
+type info = {name: string, age: number, email: string, phone: number};
+
+let arr: info[] = [];
 
 
-h1.innerText = 'manger nati kuttar bacca';
+let button = document.querySelector('.button')!;
 
-// when selecting an element by a class or id ts doesnt know what type is the element ... so we have to type cast to let ts to know that its a html element
+let innerHtmls = ``;
 
-const header = document.querySelector('.header') as HTMLHeadingElement; // type casting
+const render = () => {
+  innerHtmls = ``;
+  arr.forEach(item => {
+    let {name,age,email,phone} = item;
+    innerHtmls += `
+    <div class="hover:scale-105 transition-all duration-300 shadow-md rounded-2xl flex items-start flex-col space-y-2 p-6 *:flex *:gap-2">
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">name:</h4> ${name}</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Age:</h4> ${age}</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Email:</h4> ${email}</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Phone:</h4> ${phone}</span>
+      </div>
+    `;
+  });
+  document.querySelector('.cards')!.innerHTML = innerHtmls;
+};
 
-header.innerText = 'khankir pola manger beta';
+
+button.addEventListener('click', () => {
+  let name = document.querySelector('.name') as HTMLInputElement;
+  let age = document.querySelector('.age') as HTMLInputElement;
+  let email = document.querySelector('.email') as HTMLInputElement;
+  let phone = document.querySelector('.phone') as HTMLInputElement;
+  arr.push({name: name.value, age: age.valueAsNumber, email: email.value, phone: phone.valueAsNumber});
+  render();
+  name.value = '';
+  age.value = '';
+  email.value = '';
+  phone.value = '';
+});

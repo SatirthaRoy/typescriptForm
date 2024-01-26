@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form</title>
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+  <!-- tailwind css -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- style -->
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
 <body>
-  
+  <section>
+    <div class="cards container border-gray-300 border-b-2 flex flex-wrap p-6 gap-3">
+      <div class="hover:scale-105 transition-all duration-300 shadow-md rounded-2xl flex items-start flex-col space-y-2 p-6 *:flex *:gap-2">
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">name:</h4> Satirtha</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Age:</h4> 21</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Email:</h4> satirtharoy2003@gmail.com</span>
+        <span class="font-normal text-base"><h4 class="font-extrabold text-base">Phone:</h4> 01704339891</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <form action="" class="max-w-md space-y-6 p-6 container mx-auto flex flex-col items-stretch *:flex *:flex-col *:gap-3 *:font-bold">
+      <label for="name">Name: <input type="text" placeholder="Enter your name" class="name font-light text-sm p-3 border-b-2"></label>
+      <label for="age">Age: <input type="number" placeholder="Enter your age" class="age font-light text-sm p-3 border-b-2"></label>
+      <label for="Email">Email: <input type="email" placeholder="Enter your email" class="email font-light text-sm p-3 border-b-2"></label>
+      <label for="number">Phone Number: <input type="number" placeholder="Enter your phone number" class="phone font-light text-sm p-3 border-b-2"></label>
+      <div class="button cursor-pointer text-white text-base font-bold px-4 py-2 bg-blue-400 border-0 self-start rounded-lg">Submit</div>
+    </form>
+    
+  </section>
 
   <script src="./public/index.js"></script>
 </body>
